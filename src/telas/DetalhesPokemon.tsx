@@ -15,7 +15,7 @@ export default function PokemonDetailScreen({ route, navigation }: Props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const loadPokemon = async () => {
+  const carregarPokemon = async () => {
     setLoading(true);
     setError('');
     try {
@@ -28,10 +28,10 @@ export default function PokemonDetailScreen({ route, navigation }: Props) {
     }
   };
 
-  useEffect(() => { loadPokemon(); }, [name]);
+  useEffect(() => { carregarPokemon(); }, [name]);
 
   if (loading) return <Loading />;
-  if (error) return <Error message={error} onRetry={loadPokemon} />;
+  if (error) return <Error message={error} onRetry={carregarPokemon} />;
 
   if (!pokemon) return null;
 
